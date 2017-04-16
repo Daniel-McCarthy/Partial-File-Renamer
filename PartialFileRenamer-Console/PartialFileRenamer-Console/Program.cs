@@ -63,7 +63,7 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
             Console.WriteLine("\texit\t: Close the program.\n");
 
             Console.WriteLine("\trename \"<folder-path>\" \"<string-to-find>\" \"<string-to-replace-with>\"");
-            Console.WriteLine("\t\tExample: rename \"C:\\Users\\Name\\Pictures\" \"Annivrsary \"Anniversary\"\n");
+            Console.WriteLine("\t\tExample: rename \"C:\\Users\\Name\\Pictures\" \"Annivrsary\" \"Anniversary\"\n");
 
             Console.WriteLine("\tAdditional Arguments:\n");
 
