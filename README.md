@@ -48,7 +48,7 @@ Germany01.png
 
 ------------------------------------------------------------------------------------------
 
-The GUI version also supports the ability to overwrite any files detected to have the name our files are renamed to. It can also filter out file extensions, or filter in file extensions, so that we can select which types of files are edited. The user may also select whether the program effects all subdirectories or
+The Console version also supports the ability to overwrite any files detected to have the name our files are renamed to. It can also filter out file extensions, or filter in file extensions, so that we can select which types of files are edited. The user may also select whether the program effects all subdirectories or
 only the top-most folder. All of these can be selected via their own commands.
 
 ------------------------------------------------------------------------------------------
