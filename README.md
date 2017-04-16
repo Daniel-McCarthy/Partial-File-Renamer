@@ -4,9 +4,10 @@ ___________________________________________________________
 
 ------------------------------------------------------------------------------------------
 
-The current build does not support the ability to replace strings inside the file yet because of the potential
-destructive nature of editing files of unknown format and encoding. While this functionality is being worked on
-for future releases, the builds available currently are intended for renaming only.
+The current build does not support the ability to replace strings inside the file yet because
+of the potential destructive nature of editing files of unknown format and encoding. While this
+functionality is being worked on for future releases, the builds available currently are intended
+for renaming only.
 
 ------------------------------------------------------------------------------------------
 So what does the program do?
@@ -17,11 +18,11 @@ new one of the user's selection.
 
 For example, with these files:
 
-Vacation-Photo-Greece01.png
-Vacation-Photo-Greece02.png
-Vacation-Photo-Greece03.png
-Vacation-Photo-Italy01.png
-Vacation-Photo-Germany01.png
+Vacation-Photo-Greece01.png<br />
+Vacation-Photo-Greece02.png<br />
+Vacation-Photo-Greece03.png<br />
+Vacation-Photo-Italy01.png<br />
+Vacation-Photo-Germany01.png<br />
 
 We can select a common string and either replace or remove it.
 
@@ -29,22 +30,22 @@ rename "C:\Users\Name\Pictures\Vacation" "Vacation-Photo" "Vacation-"
 
 We can have all of the files automatically renamed to:
 
-Vacation-Greece01.png
-Vacation-Greece02.png
-Vacation-Greece03.png
-Vacation-Italy01.png
-Vacation-Germany01.png
+Vacation-Greece01.png<br />
+Vacation-Greece02.png<br />
+Vacation-Greece03.png<br />
+Vacation-Italy01.png<br />
+Vacation-Germany01.png<br />
 
 Alternatively, we could do:
 
 rename "C:\Users\Name\Pictures\Vacation" "Vacation-Photo-" ""
 
 And get:
-Greece01.png
-Greece02.png
-Greece03.png
-Italy01.png
-Germany01.png
+Greece01.png<br />
+Greece02.png<br />
+Greece03.png<br />
+Italy01.png<br />
+Germany01.png<br />
 
 ------------------------------------------------------------------------------------------
 
