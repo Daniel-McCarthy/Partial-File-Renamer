@@ -167,7 +167,7 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
 
                 FileRenamer renamer = new FileRenamer();
 
-                renamer.rename(directory, matchString, replaceString, overwrite, internalStrings, subdirectories, filter, filterout, filterExt, filterOutExt);
+                renamer.renameInitialization(directory, matchString, replaceString, overwrite, internalStrings, subdirectories, filter, filterout, filterExt, filterOutExt);
 
             }
         }

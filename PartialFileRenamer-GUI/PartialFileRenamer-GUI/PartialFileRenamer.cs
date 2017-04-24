@@ -37,7 +37,7 @@ namespace PartialFileRenamer_GUI
                     bool subfolders = subfoldersCheckBox.Enabled;
                     bool contents = contentsCheckBox.Enabled;
 
-                    fileRenamer.rename(directoryTextBox.Text, findTextBox.Text, replaceTextBox.Text, overwrite, contents, subfolders, false, false);
+                    fileRenamer.renameInitialization(directoryTextBox.Text, findTextBox.Text, replaceTextBox.Text, overwrite, contents, subfolders, false, false);
                 }
                 else
                 {

@@ -7,7 +7,7 @@ namespace PartialFileRenamer
 {
     public class FileRenamer
     {
-        public void rename(string path, string match, string replace, bool overwrite, bool internalStrings, bool subdirectories, bool extensionFilter, bool extensionFilterOut, List<string> extensionF = null, List<string> extensionFO = null)
+        public void renameInitialization(string path, string match, string replace, bool overwrite, bool internalStrings, bool subdirectories, bool extensionFilter, bool extensionFilterOut, List<string> extensionF = null, List<string> extensionFO = null)
         {
             SearchOption option = SearchOption.TopDirectoryOnly;
             string searchPattern = "*.*";
