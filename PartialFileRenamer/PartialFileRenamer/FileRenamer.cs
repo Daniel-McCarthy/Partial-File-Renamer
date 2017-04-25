@@ -55,10 +55,10 @@ namespace PartialFileRenamer
                 editInternalStrings(ref files, match, replace);
             }
 
-            rename(files, match, replace, overwrite);
+            rename(ref files, match, replace, overwrite);
         }
 
-        public List<String> rename(List<string> originalFiles, string matchString, string replaceString, bool overwriteBool)
+        public void rename(ref List<string> originalFiles, string matchString, string replaceString, bool overwriteBool)
         {
 
             if (originalFiles.Count > 0)
@@ -117,9 +117,7 @@ namespace PartialFileRenamer
                 Console.WriteLine("Error! No files to rename!");
             }
 
-            return null;
         }
-
 
         public bool editInternalStrings(ref List<string> files, string matchString, string replaceString)
         {
@@ -206,7 +204,6 @@ namespace PartialFileRenamer
 
             return true;
         }
-
 
         /*
  * //Original implementation. Have to detect encoding to avoid changing files. If nothing else, detect if file has been changed (besides string). If has, don't save. 
