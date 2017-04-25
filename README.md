@@ -1,5 +1,5 @@
 # Partial-File-Renamer
-A C# Utility made to batch rename selections of file names.
+A C# Utility made to batch rename selections of file names and search for files containing specific strings.
 ___________________________________________________________
 
 ------------------------------------------------------------------------------------------
@@ -51,5 +51,9 @@ Germany01.png<br />
 
 The Console version also supports the ability to overwrite any files detected to have the name our files are renamed to. It can also filter out file extensions, or filter in file extensions, so that we can select which types of files are edited. The user may also select whether the program effects all subdirectories or
 only the top-most folder. All of these can be selected via their own commands.
+
+Additionally the user may search the contents of files for a string. This can be done with the additional abilities
+to select whether or not the search is case sensitive, and whether the search includes files in subdirectories.
+
 
 ------------------------------------------------------------------------------------------
