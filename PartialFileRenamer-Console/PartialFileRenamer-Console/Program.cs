@@ -82,12 +82,25 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
             //Console.WriteLine("\t-i\t: Rename will also replace any detected matching strings inside the file");
             //Console.WriteLine("\t\tExample: rename \"C:\\Users\\Name\\Project\" \"UnnamedProject\" \"PartialFileRenamer\" i\n");
 
+            Console.WriteLine("\n\tsearch \"<folder-path>\" \"<string-to-find>\"");
+            Console.WriteLine("\t\tExample: search \"C:\\Users\\Name\\Documents\\\" \"Jonathan\"\n");
+
+            Console.WriteLine("\tAdditional Arguments:\n");
+
+            Console.WriteLine("\t-s\t: Search will effect files in all subdirectories of selected folder");
+            Console.WriteLine("\t\tExample: search \"C:\\Users\\Name\\Documents\\\" \"Calculus\" s\n");
+
+            Console.WriteLine("\t-cs\t: Search will ensure only matches with identical casing are reported.");
+            Console.WriteLine("\t\tExample: rename \"C:\\Users\\Name\\Documents\\\" \"USA\" cs\n");
+
+
+
         }
 
         static private void outputAbout()
         {
             Console.WriteLine(@"-----------------------------------------");
-            Console.WriteLine("\nPartial File Renamer ver 0.0\tby Dan McCarthy (UnknownToaster)");
+            Console.WriteLine("\nPartial File Renamer ver 0.1\tby Dan McCarthy (UnknownToaster)");
             Console.WriteLine("Contact: dan.willy.mccarthy@gmail.com");
             Console.WriteLine("Source Code: https://github.com/UnknownToaster/Partial-File-Renamer");
 
@@ -101,6 +114,9 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
 
             Console.WriteLine("Our files become:");
             Console.WriteLine("PartialFileRenamer.exe\nPartialFileRenamer.dll\nPartialFileRenamer.pdb\n");
+
+            Console.WriteLine("\nAdditionally the user may search the contents of files and be returned a list of all files");
+            Console.WriteLine("in that folder containing the string submitted.");
             Console.WriteLine("-----------------------------------------");
 
         }
@@ -171,6 +187,38 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
 
                 renamer.renameInitialization(directory, matchString, replaceString, overwrite, internalStrings, subdirectories, filter, filterout, filterExt, filterOutExt);
 
+            }
+
+            if (arguments.Contains("search"))
+            {
+                int searchIndex = arguments.IndexOf("search");
+
+                string directory = arguments[searchIndex + 1];
+                string matchString = arguments[searchIndex + 2];
+
+                bool caseSensitive = false;
+                bool subdirectories = false;
+
+                for (int i = 0; i < arguments.Count; i++)
+                {
+                    switch (arguments[i])
+                    {
+                        case "cs":
+                            {
+                                caseSensitive = true;
+                                break;
+                            }
+                        case "s":
+                            {
+                                subdirectories = true;
+                                break;
+                            }
+                    }
+                }
+
+                FileRenamer renamer = new FileRenamer();
+
+                renamer.searchInitialization(directory, matchString, caseSensitive, subdirectories);
             }
         }
 

@@ -205,8 +205,67 @@ namespace PartialFileRenamer
             return true;
         }
 
-        /*
- * //Original implementation. Have to detect encoding to avoid changing files. If nothing else, detect if file has been changed (besides string). If has, don't save. 
+        public void searchInitialization(string path, string matchString, bool isCaseSensitive, bool searchSubDirs)
+        {
+            List<string> files = new List<string>();
+            StringComparison sensitivity;
+            string searchPattern = "*.*";
+            SearchOption option;
+
+            if (searchSubDirs)
+            {
+                option = SearchOption.AllDirectories;
+            }
+            else
+            {
+                option = SearchOption.TopDirectoryOnly;
+            }
+
+            if (isCaseSensitive)
+            {
+                sensitivity = StringComparison.Ordinal;
+            }
+            else
+            {
+                sensitivity = StringComparison.OrdinalIgnoreCase;
+            }
+
+            files.AddRange(Directory.GetFiles(path, searchPattern, option));
+
+            search(ref files, matchString, sensitivity);
+
+        }
+
+        public void search(ref List<string> searchFiles, string matchString, StringComparison sensitivity)
+        {
+            Console.WriteLine(); //spacing for readability purposes
+
+            FileInfo[] fileInfos = new FileInfo[searchFiles.Count];
+
+            for (int i = 0; i < searchFiles.Count; i++)
+            {
+                fileInfos[i] = new FileInfo(searchFiles[i]);
+            }
+
+            for (int i = 0; i < searchFiles.Count; i++)
+            {
+                FileStream file = new FileStream(fileInfos[i].FullName, FileMode.Open);
+
+                using (BinaryReader br = new BinaryReader(file))
+                {
+                    string fileData = Encoding.ASCII.GetString(br.ReadBytes((int)file.Length));
+
+                    if (fileData.IndexOf(matchString, sensitivity) >= 0)
+                    {
+                        Console.WriteLine("Match found for " + matchString + "in: " + fileInfos[i].FullName);
+                    }
+                }
+            }
+        }
+
+
+/*
+//Original implementation. Have to detect encoding to avoid changing files. If nothing else, detect if file has been changed (besides string). If has, don't save. 
 public bool editInternalStrings(ref List<string> files, string matchString, string replaceString)
 {
     foreach(string filePath in files)
