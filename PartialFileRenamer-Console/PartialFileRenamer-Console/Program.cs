@@ -14,7 +14,7 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
             if (args.Length == 0)
             {
 
-                Console.WriteLine("Welcome to Partial File Renamer ver. 0.0\n");
+                Console.WriteLine("Welcome to Partial File Renamer ver. 0.1\n");
 
                 Console.WriteLine("Type: \"help\" for List of Commands");
                 Console.WriteLine("Type: \"about\" for More Information");
@@ -111,11 +111,13 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
 
             List<string> arguments = split(input);
 
-            if (arguments[0] == "rename")
+            if (arguments.Contains("rename"))
             {
-                string directory = arguments[1];
-                string matchString = arguments[2];
-                string replaceString = arguments[3];
+                int renameIndex = arguments.IndexOf("rename");
+
+                string directory = arguments[renameIndex + 1];
+                string matchString = arguments[renameIndex + 2];
+                string replaceString = arguments[renameIndex + 3];
 
                 bool overwrite = false;
                 bool filter = false;
@@ -126,7 +128,7 @@ namespace PartialFileRenamer_Console //ʕ•ᴥ•ʔ
                 List<string> filterExt = new List<string>();
                 List<string> filterOutExt = new List<string>();
 
-                for (int i = 4; i < arguments.Count; i++)
+                for (int i = 0; i < arguments.Count; i++)
                 {
                     switch (arguments[i])
                     {
